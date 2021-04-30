@@ -1,4 +1,7 @@
 package makza.afonsky.healthdiary
 
-class ButtonSheetActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class ButtonSheetActivity : AppCompatActivity() {
+
 }
