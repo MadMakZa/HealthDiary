@@ -18,20 +18,7 @@ class BottomSheetFragment: BottomSheetDialogFragment(){
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.bottomsheet_fragment, container, false)
-        val btnAddNote: FloatingActionButton = rootView.findViewById(R.id.btn_addNote)
-        btnAddNote.setOnClickListener {
-            Toast.makeText(activity, "Add note clicked!", Toast.LENGTH_SHORT).show()
-        }
-
         return rootView
-    }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-
     }
 
 
