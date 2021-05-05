@@ -18,17 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.executePendingBindings()
 
-        binding.btnShowSheet.setOnClickListener {
-//            showBottomSheetFragment()
-        }
-
     }
-
-//    //показать нижний диалог
-//    fun showBottomSheetFragment() {
-//        val bottomSheetFragment = BottomSheetFragment()
-//        bottomSheetFragment.show(supportFragmentManager, "bottomSheetFragment")
-//    }
 
 
 
