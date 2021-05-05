@@ -4,21 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import makza.afonsky.healthdiary.R
+import makza.afonsky.healthdiary.databinding.BottomsheetFragmentBinding
 
-class BottomSheetFragment: BottomSheetDialogFragment(){
+open class BottomSheetFragment: BottomSheetDialogFragment(){
 
-//    private val viewModel by viewModel
+    private lateinit var binding: BottomsheetFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.bottomsheet_fragment, container, false)
-        return rootView
+        binding = DataBindingUtil.inflate(inflater, R.layout.bottomsheet_fragment, container, false)
+        return binding.root
     }
+
 
 
 }
