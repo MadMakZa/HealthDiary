@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="bottomSheet"
-            type="makza.afonsky.healthdiary.view.BottomSheetFragment" />
+            name="viewModel"
+            type="makza.afonsky.healthdiary.viewModel.MainViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/bottom_sheet"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_primary_dark"
         android:orientation="vertical"
-        android:layout_gravity="bottom"
         app:behavior_hideable="false"
         app:behavior_peekHeight="50dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
@@ -29,7 +29,8 @@
             android:id="@+id/btnAddNote"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:background="@color/white"
+            android:onClick="@{() -> viewModel.onClickAddNote()}"
+            android:text="Note"
             android:layout_gravity="center" />
 
         <TextView
@@ -50,7 +51,7 @@
             android:text="Calendar must be here"
             android:textColor="@android:color/white" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

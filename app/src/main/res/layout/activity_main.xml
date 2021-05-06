@@ -8,6 +8,7 @@
         <variable
             name="viewModel"
             type="makza.afonsky.healthdiary.viewModel.MainViewModel" />
+
     </data>
 
     <LinearLayout
@@ -17,10 +18,12 @@
 
 
         <include
+            android:id="@+id/id_bottomsheet"
             layout="@layout/bottomsheet_fragment"
+            app:viewModel="@{viewModel}"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom" />
 
 
     </LinearLayout>
