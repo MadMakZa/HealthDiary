@@ -26,15 +26,6 @@
             app:behavior_peekHeight="50dp"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-            <Button
-                android:id="@+id/btnAddNote"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:onClick="@{() -> viewModel.onClickAddNote()}"
-                android:text="Note" />
-
-
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
@@ -44,6 +35,15 @@
 
         </LinearLayout>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onClickAddNote()}"
+            android:src="@android:drawable/ic_menu_edit"
+            app:backgroundTint="@color/purple_200"
+            app:layout_anchor="@+id/linearLayout"
+            app:layout_anchorGravity="top|center" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -16,7 +16,6 @@
         android:layout_height="match_parent"
         tools:context=".view.MainActivity">
 
-
         <include
             android:id="@+id/id_bottomsheet"
             layout="@layout/bottomsheet_fragment"
