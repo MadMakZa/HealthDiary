@@ -4,7 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 
-class BottomSheetViewModel: ViewModel() {
+class BottomSheetViewModel: MainViewModel() {
 
 
 
