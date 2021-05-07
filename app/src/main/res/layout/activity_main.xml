@@ -11,19 +11,43 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.MainActivity">
+        tools:context=".view.MainActivity"
+        android:orientation="horizontal">
+
+        <AnalogClock
+            android:id="@+id/analogClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="129dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <DigitalClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="72dp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="28sp"
+            app:layout_constraintStart_toEndOf="@+id/analogClock"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <include
             android:id="@+id/id_bottomsheet"
             layout="@layout/bottomsheet_fragment"
-            app:viewModel="@{viewModel}"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_gravity="bottom" />
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:viewModel="@{viewModel}" />
 
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
