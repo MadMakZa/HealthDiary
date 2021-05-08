@@ -1,10 +1,12 @@
 package makza.afonsky.healthdiary.viewModel.adapters
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import makza.afonsky.healthdiary.R
 import makza.afonsky.healthdiary.model.Note
 
-class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
+class NoteAdapter(items: ArrayList<Note>) : RecyclerView.Adapter<NoteViewHolder>() {
 
     //лист с заметками
     private val noteList = mutableListOf<Note>()
@@ -18,16 +20,20 @@ class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
 
     //вызывается для создания каждой ячейки
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        TODO("Not yet implemented")
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.cardview_fragment, parent, false)
+        return NoteViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
-
+    //вернуть количество элементов в списке
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return noteList.size
     }
+
+    //заполняет экран видимыми ячейками и обновляет данные (при скроллинге)
+    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+        holder.bind(noteList[position])
+    }
+
 
 
 }
