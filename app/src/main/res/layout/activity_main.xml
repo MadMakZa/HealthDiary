@@ -18,9 +18,9 @@
         android:orientation="horizontal">
 
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="80dp"
             android:background="@color/teal_700"
             android:padding="16dp"
@@ -35,7 +35,7 @@
                 layout="@layout/cardview_fragment"
                 app:viewModel="@{viewModel}" />
 
-        </ScrollView>
+        </androidx.recyclerview.widget.RecyclerView>
 
         <include
             android:id="@+id/id_bottomsheet"
