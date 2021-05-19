@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import makza.afonsky.healthdiary.R
 import makza.afonsky.healthdiary.databinding.ActivityMainBinding
 import makza.afonsky.healthdiary.databinding.BottomsheetFragmentBinding
-import makza.afonsky.healthdiary.model.Note
+import makza.afonsky.healthdiary.model.data.Note
 import makza.afonsky.healthdiary.viewModel.MainViewModel
 import makza.afonsky.healthdiary.viewModel.adapters.NoteAdapter
 
@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         binding.recyclerview.layoutManager = linearLayoutManager
         val items = ArrayList<Note>()
-        items.add(Note("Max","Attacks"))
-        items.add(Note("Jacks","Hacks"))
-        items.add(Note("Musk","Go to Mars"))
+        items.add(Note("Max",10))
+        items.add(Note("Jacks",11))
+        items.add(Note("Musk",12))
         noteAdapter = NoteAdapter(items)
         binding.recyclerview.adapter = noteAdapter
 

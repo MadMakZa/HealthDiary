@@ -4,18 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import makza.afonsky.healthdiary.R
-import makza.afonsky.healthdiary.model.Note
+import makza.afonsky.healthdiary.model.data.Note
 
 class NoteAdapter(items: ArrayList<Note>) : RecyclerView.Adapter<NoteViewHolder>() {
 
     //лист с заметками
     private val noteList = mutableListOf<Note>()
 
-    //наполняет лист заметками
-    fun addNote(note: Note){
-        noteList.add(note)
-        notifyDataSetChanged() //обновляет данные в адаптере (на экране)
-    }
 
 
     //вызывается для создания каждой ячейки
@@ -31,7 +26,7 @@ class NoteAdapter(items: ArrayList<Note>) : RecyclerView.Adapter<NoteViewHolder>
 
     //заполняет экран видимыми ячейками и обновляет данные (при скроллинге)
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.bind(noteList[position])
+
     }
 
 
