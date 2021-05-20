@@ -2,11 +2,8 @@ package makza.afonsky.healthdiary.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import makza.afonsky.healthdiary.R
 import makza.afonsky.healthdiary.databinding.ActivityMainBinding
-import makza.afonsky.healthdiary.databinding.BottomsheetFragmentBinding
 import makza.afonsky.healthdiary.model.data.Note
 import makza.afonsky.healthdiary.viewModel.MainViewModel
 import makza.afonsky.healthdiary.viewModel.adapters.NoteAdapter
@@ -14,17 +11,14 @@ import makza.afonsky.healthdiary.viewModel.adapters.NoteAdapter
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bindingBottomSheet: BottomsheetFragmentBinding
     private var viewModel = MainViewModel()
 
     private lateinit var noteAdapter: NoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.viewModel = viewModel
-        bindingBottomSheet = binding.idBottomsheet
-        binding.executePendingBindings()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initRecyclerView()
 

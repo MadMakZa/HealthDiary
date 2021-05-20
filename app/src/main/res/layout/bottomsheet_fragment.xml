@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="makza.afonsky.healthdiary.viewModel.MainViewModel" />
-    </data>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -31,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:layout_gravity="center"/> />
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 
@@ -39,14 +31,12 @@
             android:id="@+id/btnFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onClickAddNote()}"
             android:src="@android:drawable/ic_menu_edit"
             app:backgroundTint="@color/purple_200"
             app:layout_anchor="@+id/linearLayout"
-            app:layout_anchorGravity="top|center" />
+            app:layout_anchorGravity="top|center"
+            android:contentDescription="addNote" />
 
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</layout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
