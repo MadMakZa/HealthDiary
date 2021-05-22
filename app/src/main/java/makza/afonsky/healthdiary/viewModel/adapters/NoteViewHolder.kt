@@ -8,7 +8,7 @@ import makza.afonsky.healthdiary.R
 
 class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    val _name: TextView = itemView.findViewById(R.id.notetext) as TextView
-    val _checkBox: CheckBox = itemView.findViewById(R.id.checkBox) as CheckBox
+    val _textNote: TextView = itemView.findViewById(R.id.tvText) as TextView
+    val _dateCreated: TextView = itemView.findViewById(R.id.tvDate) as TextView
 
 }

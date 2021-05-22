@@ -8,10 +8,10 @@ import java.text.DateFormat
  */
 
 data class Note(
-    val name: String,
-    val created: Long = System.currentTimeMillis()
+    val textNote: String,
+    val dateCreated: Long = System.currentTimeMillis()
 ) {
     val createdDateFormatted: String
-        get() = DateFormat.getDateTimeInstance().format(created)
+        get() = DateFormat.getDateTimeInstance().format(dateCreated)
 }
 
