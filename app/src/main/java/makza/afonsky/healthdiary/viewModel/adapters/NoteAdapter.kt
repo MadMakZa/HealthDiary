@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import makza.afonsky.healthdiary.R
 import makza.afonsky.healthdiary.model.data.Note
 
-class NoteAdapter(items: ArrayList<Note>) : RecyclerView.Adapter<NoteViewHolder>() {
+class NoteAdapter(private val noteList: MutableList<Note>) : RecyclerView.Adapter<NoteViewHolder>() {
 
     //лист с заметками
-    private val noteList = mutableListOf<Note>()
+//    private val noteList = mutableListOf<Note>()
 
 
 
@@ -26,7 +26,8 @@ class NoteAdapter(items: ArrayList<Note>) : RecyclerView.Adapter<NoteViewHolder>
 
     //заполняет экран видимыми ячейками и обновляет данные (при скроллинге)
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-
+        val curNote = noteList[position]
+        holder._name.text = curNote.name
     }
 
 

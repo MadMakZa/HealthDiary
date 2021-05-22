@@ -8,6 +8,7 @@ import makza.afonsky.healthdiary.model.data.Note
 import makza.afonsky.healthdiary.viewModel.MainViewModel
 import makza.afonsky.healthdiary.viewModel.adapters.NoteAdapter
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
