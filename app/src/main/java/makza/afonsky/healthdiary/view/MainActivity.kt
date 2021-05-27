@@ -6,8 +6,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import makza.afonsky.healthdiary.R
 import makza.afonsky.healthdiary.databinding.ActivityMainBinding
 import makza.afonsky.healthdiary.model.data.Note
+import makza.afonsky.healthdiary.view.fragments.EditNoteFragment
 import makza.afonsky.healthdiary.viewModel.MainViewModel
 import makza.afonsky.healthdiary.viewModel.adapters.NoteAdapter
 import java.util.*
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         initRecyclerView()
+        createNewNote()
 
 
 
@@ -48,7 +51,17 @@ class MainActivity : AppCompatActivity() {
         noteAdapter = NoteAdapter(items)
         binding.recyclerview.adapter = noteAdapter
 
+    }
 
+    fun createNewNote(){
+        binding.idBottomsheet.btnCreateNewNote.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                val fragmentEditNote = EditNoteFragment()
+                replace(R.id.container_fragment, fragmentEditNote)
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 
 
