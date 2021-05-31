@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.idBottomsheet.btnCreateNewNote.setOnClickListener {
-            binding.idBottomsheet.bottomSheet.visibility = View.INVISIBLE
+//            binding.idBottomsheet.bottomSheet.visibility = View.INVISIBLE
 
             supportFragmentManager.beginTransaction().apply {
                 setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim)

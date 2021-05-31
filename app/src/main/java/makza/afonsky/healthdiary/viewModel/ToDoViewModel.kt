@@ -10,9 +10,9 @@ import makza.afonsky.healthdiary.model.db.ToDoData
 import makza.afonsky.healthdiary.model.db.ToDoDatabase
 import makza.afonsky.healthdiary.model.db.ToDoRepository
 
-class ToDoViewModel(application: Application): AndroidViewModel(application) {
+open class ToDoViewModel(application: Application): AndroidViewModel(application) {
 
-    private val toDoDao = ToDoDatabase.getDatabase(application).toDoDao()
+    private var toDoDao = ToDoDatabase.getDatabase(application).toDoDao()
     private val repository: ToDoRepository
 
     private val getAllData: LiveData<List<ToDoData>>
