@@ -1,5 +1,6 @@
 package makza.afonsky.healthdiary.view.fragments
 
+import android.app.Application
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -10,17 +11,19 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import makza.afonsky.healthdiary.R
 import makza.afonsky.healthdiary.model.db.Priority
 import makza.afonsky.healthdiary.model.db.ToDoData
 import makza.afonsky.healthdiary.viewModel.MainViewModel
+import makza.afonsky.healthdiary.viewModel.MainViewModelFactory
 import makza.afonsky.healthdiary.viewModel.ToDoViewModel
 
 class EditNoteFragment: Fragment() {
 
-//    private lateinit var mToDoViewModel: ToDoViewModel
-    private lateinit var viewModel: MainViewModel
+    private lateinit var mToDoViewModel: ToDoViewModel
+//    private lateinit var viewModel: MainViewModel
 
     lateinit var btnSaveNote: FloatingActionButton
     lateinit var title: EditText
@@ -32,8 +35,9 @@ class EditNoteFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = MainViewModel()
-//        mToDoViewModel = ToDoViewModel()
+//        viewModel = MainViewModel()
+        mToDoViewModel = ViewModelProvider(this, MainViewModelFactory(application = Application())).get(ToDoViewModel::class.java)
+
         val v: View = inflater.inflate(R.layout.editnote_fragment, container, false)
         return v
     }
@@ -45,7 +49,7 @@ class EditNoteFragment: Fragment() {
         btnSaveNote = activity?.findViewById(R.id.btnSaveNote)!!
         spinner = activity?.findViewById(R.id.spinner)!!
 
-//        saveNote()
+        saveNote()
 
 
     }
@@ -80,7 +84,7 @@ class EditNoteFragment: Fragment() {
                 parsePriority(mPriority),
                 mDescription
             )
-//            mToDoViewModel.insertData(newData)
+            mToDoViewModel.insertData(newData)
             Toast.makeText(requireContext(), "Note Added", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(requireContext(), "empty", Toast.LENGTH_SHORT).show()

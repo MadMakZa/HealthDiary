@@ -12,6 +12,7 @@ import makza.afonsky.healthdiary.model.data.Note
 import makza.afonsky.healthdiary.view.fragments.EditNoteFragment
 import makza.afonsky.healthdiary.view.fragments.MainFragment
 import makza.afonsky.healthdiary.viewModel.MainViewModel
+import makza.afonsky.healthdiary.viewModel.ToDoViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,9 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private var items = ArrayList<Note>()
 
-//    private lateinit var noteAdapter: NoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,28 +29,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-//        initRecyclerView()
         setFragments()
-
-
-
     }
 
-    override fun onStart() {
-        super.onStart()
-//        viewModel.liveData.observe(this, Observer {
-//            items.addAll(it)
-//        })
-    }
 
-//    fun initRecyclerView(){
-//        val linearLayoutManager = LinearLayoutManager(applicationContext)
-//        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-//        binding.recyclerview.layoutManager = linearLayoutManager
-//        noteAdapter = NoteAdapter(items)
-//        binding.recyclerview.adapter = noteAdapter
-//
-//    }
 
     private fun setFragments() {
         val mainFragment = MainFragment()
@@ -65,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.idBottomsheet.btnCreateNewNote.setOnClickListener {
 //            binding.idBottomsheet.bottomSheet.visibility = View.INVISIBLE
-
+            //открыть фрагмент редактор записи
             supportFragmentManager.beginTransaction().apply {
                 setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim)
                 replace(R.id.container_fragment, fragmentEditNote)
